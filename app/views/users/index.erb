@@ -1,0 +1,21 @@
+<div class="container">
+  <% @user = User.find(session[:user_id]) %>
+<h3>Welcome <%= @user.name %> </h3>
+<dl>
+  <% @user.reviews.each do |url| %>
+
+  <dt> City:</dt>
+
+  <dt> Restaurant:</dt>
+
+  <dt> Review title </dt>
+
+  <dt> Review rating </dt>
+
+  <% end %>
+</dl>
+
+<p><a href="/reviews/new">Create new review</a></p>
+<p><a href="/users/logout">Log Out</a></p>
+</div>
+
