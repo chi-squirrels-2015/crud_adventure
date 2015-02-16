@@ -1,0 +1,21 @@
+.container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+table tr, th, td {
+  border: 1px solid black;
+}
+
+table {
+  margin: 0 auto;
+}
+
+header {
+  max-height: 150px;
+  text-align: center;
+}
+
+nav {
+  float: right;
+}

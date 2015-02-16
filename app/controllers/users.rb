@@ -1,39 +1,35 @@
-get '/' do
+get '/login' do
 
-  erb :index
+  erb :"users/login"
 end
 
-post '/' do
+post '/login' do
+  user = User.authenticate(params[:email], params[:password])
+  if user
+    session[:user_id] = user.id
+    redirect "/"
+  else
+    erb :"/users/login"
+  end
 
-  redirect '/users'
 end
 
-get '/users' do
-
-  erb :"users/index"
-
+get '/signup' do
+  erb :"users/signup"
 end
 
-get '/users/new' do
-  erb :"users/new"
-end
-
-post '/users' do
+post '/signup' do
   @user = User.new(params[:user])
 
   if @user.save
-    redirect "/users"
+    session[:user_id] = @user.id
+    redirect "/"
   else
-    erb :"users/new"
+    erb :"users/signup"
   end
 end
 
-
-
-
-
-
-get 'logout' do
-
-
+get '/logout' do
+  session.clear
+  redirect "/"
 end

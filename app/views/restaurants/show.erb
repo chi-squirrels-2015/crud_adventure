@@ -1,0 +1,29 @@
+<div class="container">
+  <h2><%= @restaurant.name %> </h2>
+
+  <h4>Average Rating: <%= @restaurant.average_rating %></h4>
+  <h4>Location: <%= @restaurant.city.name %></h4>
+  <br>
+  <h4>Reviews</h4>
+
+  <table>
+    <tr>
+      <th>User</th><th>Title</th><th>Content</th><th>Rating</th>
+    </tr>
+    <% @user = current_user if current_user %>
+    <% @restaurant.reviews.each do |review| %>
+
+    <tr>
+      <td><%= review.user.name %></td>
+      <td><%= review.title %></td>
+      <td><%= review.content %></td>
+      <td><%= review.rating %></td>
+    </tr>
+
+    <% end %>
+
+  </table>
+  <br>
+  <button><a href="/cities/<%= @restaurant.city.id %>/restaurants/<%= @restaurant.id%>/reviews/new">Add a New Review</a></button>
+
+</div>

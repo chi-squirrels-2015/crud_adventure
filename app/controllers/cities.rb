@@ -5,9 +5,8 @@ get "/cities" do
 
 end
 
-get '/cities/:id' do
-  @city = City.find(params[:id])
+get '/cities/:city_id/restaurants' do
+  @city = City.find(params[:city_id])
 
   erb :"cities/show"
-
 end

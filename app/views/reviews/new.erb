@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>New Review</h1>
+
+  <form method="post" action="/cities/<%= @restaurant.city.id %>/restaurants/<%= @restaurant.id%>/reviews/new">
+    <input type="text" name="title" placeholder="Title">
+    <br>
+    <input type="text" name="content" placeholder="Content">
+    <br>
+    <input type="text" name="rating" placeholder="Rating">
+
+    <input type="submit" value="Submit Review!">
+  </form>
+
+</div>
