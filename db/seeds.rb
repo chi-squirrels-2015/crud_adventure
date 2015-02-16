@@ -25,10 +25,5 @@ Review.create!(user: andrew, restaurant: swedish, title: "Awesomeness!", content
 # Create average rating per restaurant
 restaurants = Restaurant.all
 restaurants.each do |restaurant|
-  sum = 0
-  restaurant.reviews.each do |review|
-    sum += review.rating
-  end
-  restaurant.average_rating = sum / restaurant.reviews.count
-  restaurant.save
+  restaurant.update_average
 end

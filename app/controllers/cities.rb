@@ -2,7 +2,6 @@ get "/cities" do
   @cities = City.all
 
   erb :"/cities/index"
-
 end
 
 get '/cities/:city_id/restaurants' do
